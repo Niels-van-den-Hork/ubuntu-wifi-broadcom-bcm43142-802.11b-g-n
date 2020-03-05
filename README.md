@@ -3,9 +3,11 @@ This fixes the 'no network adapter found' issues for my hp pavilion laptop on ub
 
 Start the following from a clean install of ubuntu (in my case 18.04 and previously 16.04):
 
-https://askubuntu.com/questions/55868/installing-broadcom-wireless-drivers
-sudo apt install bcmwl-kernel-source
+run `lspci -nn | grep -i net` Look up which package you have to install using the table on this page:
+https://askubuntu.com/questions/55868/installing-broadcom-wireless-drivers Install it, in my case `sudo apt install bcmwl-kernel-source`
 
+
+before:
 ```
 niels@niels-laptop:~$ sudo lshw -C network
   *-network UNCLAIMED       
@@ -38,6 +40,7 @@ niels@niels-laptop:~$ sudo lshw -C network
        resources: irq:19 ioport:4000(size=256) memory:c6004000-c6004fff memory:c6000000-c6003fff
 ```
 
+after:
 ```
 niels@niels-laptop:~$ sudo lshw -C network
 [sudo] password for niels: 
