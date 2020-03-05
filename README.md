@@ -36,7 +36,8 @@ niels@niels-laptop:~$ sudo lshw -C network
        capabilities: pm msi pciexpress msix vpd bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd autonegotiation
        configuration: autonegotiation=on broadcast=yes driver=r8169 duplex=full firmware=rtl8106e-2_0.0.1 04/23/13 ip=10.21.2.30 latency=0 link=yes multicast=yes port=MII speed=100Mbit/s
        resources: irq:19 ioport:4000(size=256) memory:c6004000-c6004fff memory:c6000000-c6003fff
-       ```
+```
+
 ```
 niels@niels-laptop:~$ sudo lshw -C network
 [sudo] password for niels: 
