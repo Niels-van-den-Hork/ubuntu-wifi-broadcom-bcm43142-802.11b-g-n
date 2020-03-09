@@ -6,6 +6,13 @@ Start the following from a clean install of ubuntu (in my case 18.04 and previou
 run `lspci -nn | grep -i net` Look up which package you have to install using the table on this page:
 https://askubuntu.com/questions/55868/installing-broadcom-wireless-drivers Install it, in my case `sudo apt install bcmwl-kernel-source`
 
+# Wifi hardware switch turns off after hibernate/sleep/lock
+
+I had a problem where the wifi 'hardware' switch would turn off after hibernate, even though the laptop does not have a hardware switch. The switch cannot be turned back on without a restart of the laptop. To solve this you can add `GRUB_CMDLINE_LINUX_DEFAULT="acpi_osi=! acpi_osi='Windows 2009' quiet splash"` to /etc/default/grub.
+This should enable you to turn on the hardware switch only after pressing fn+F10 (maybe fn+f12 as that has an airplane mode symbol on my laptop). In my case it solves the issue completely, my hardware switch now never turns off.
+source: https://askubuntu.com/questions/1043547/wifi-hard-blocked-after-suspend-in-ubuntu-on-gs65/1058248#1058248
+
+
 
 before:
 ```
